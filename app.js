@@ -120,7 +120,8 @@
 
   /* the side nav is built once; a route only moves its current mark, so keyboard focus on a nav link survives */
   function buildNav() {
-    var html = '<a href="./" data-k="">Home</a>', grp = "";
+    // the way back to every world's lorebook (the host's root page, his ask 2026-11-13), above this lorebook's own Home
+    var html = '<a href="' + App.esc(location.origin + "/") + '" class="allworlds">\u2190 All worlds</a><a href="./" data-k="">Home</a>', grp = "";
     App.SECTIONS.forEach(function (s) {
       if (s.k === "bench" && !App.data.craft) return;   // the crafting bench, where the world has one
       if (App.data.site.off.indexOf(s.k) >= 0) return;   // a section the world has none of
